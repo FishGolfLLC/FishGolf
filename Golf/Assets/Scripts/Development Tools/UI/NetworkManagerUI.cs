@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,11 +13,11 @@ public class NetworkManagerUI : MonoBehaviour
         });
         host.onClick.AddListener(() =>
         {
-            NetworkManager.Singleton.StartHost();
+           // NetworkManager.Singleton.StartHost();
         });
         client.onClick.AddListener(() =>
         {
-            NetworkManager.Singleton.StartClient();
+           // NetworkManager.Singleton.StartClient();
         });
     }
 }

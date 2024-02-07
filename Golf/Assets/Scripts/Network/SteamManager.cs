@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +6,7 @@ public class SteamManager : MonoBehaviour
     public uint appId;
     public UnityEvent OnSteamFailed;
 
+    //Dont think we need this script?
     private void Awake()
     {
         DontDestroyOnLoad(this);
