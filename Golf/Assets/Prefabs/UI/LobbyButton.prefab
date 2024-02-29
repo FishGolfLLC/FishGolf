@@ -1103,6 +1103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3676871007006736824}
+  - component: {fileID: 2741352588410090001}
   m_Layer: 5
   m_Name: LobbyButton
   m_TagString: Untagged
@@ -1130,6 +1131,22 @@ RectTransform:
   m_AnchoredPosition: {x: 818.09076, y: -50}
   m_SizeDelta: {x: 1666.1532, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2741352588410090001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617703301288408998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2be58f993b45047a066934a67b5905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostName: {fileID: 7390327517482961119}
+  playerCount: {fileID: 6945239802714923331}
+  serverRegion: {fileID: 3819751465616574778}
+  locked: {fileID: 5285638898192428223}
 --- !u!1 &5813035952834798691
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,5 +24,13 @@ public static class Extensions
 
         avatar.Apply();
         return avatar;
+    }
+    public static void DestroyChildren(this GameObject t)
+    {
+        t.transform.Cast<Transform>().ToList().ForEach(c => Object.Destroy(c.gameObject));
+    }
+    public static void DestroyChildren(this Transform t)
+    {
+        DestroyChildren(t.gameObject);
     }
 }

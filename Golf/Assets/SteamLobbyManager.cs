@@ -2,6 +2,7 @@ using Netcode.Transports.Facepunch;
 using Steamworks;
 using Steamworks.Data;
 using System;
+using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -26,7 +27,6 @@ public class SteamLobbyManager : MonoBehaviour
         SteamMatchmaking.OnLobbyCreated += LobbyCreated;
         SteamMatchmaking.OnLobbyEntered += LobbyEntered;
         SteamFriends.OnGameLobbyJoinRequested += GameLobbyJoinRequested;
-        ShowLobbies();
     }
 
     private async void GameLobbyJoinRequested(Lobby lobby, SteamId arg2)
@@ -47,14 +47,9 @@ public class SteamLobbyManager : MonoBehaviour
         NetworkManager.Singleton.StartClient();
         Debug.Log("Lobby Entered.");
     }
-    private async void ShowLobbies()
+    public async static Task<Lobby[]> GetLobbies()
     {
-        Lobby[] lobbies = await SteamMatchmaking.LobbyList.WithSlotsAvailable(1).RequestAsync();
-        foreach(Lobby lob in lobbies)
-        {
-            Debug.Log("Lobby:" + lob.Id);
-        }
-        return;
+        return await SteamMatchmaking.LobbyList.WithSlotsAvailable(1).RequestAsync();
     }
 
     private void LobbyCreated(Result arg1, Lobby arg2)
@@ -65,6 +60,9 @@ public class SteamLobbyManager : MonoBehaviour
             NetworkManager.Singleton.StartHost();
             currentLobby.SetPublic();
             currentLobby.SetJoinable(true);
+            currentLobby.SetData(LobbyDataConstants.HostName, SteamClient.Name);
+            currentLobby.SetData(LobbyDataConstants.ServerRegion, "North America");
+            Debug.LogWarning("Force the player to choose their region upon loading the game for the first time.");
         }
     }
 
