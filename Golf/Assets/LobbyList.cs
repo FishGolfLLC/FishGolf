@@ -23,6 +23,7 @@ public class LobbyList : MonoBehaviour
             lobbyButton.playerCount.text = lobby.MemberCount.ToString() + "/" + lobby.MaxMembers.ToString();
             lobbyButton.serverRegion.text = serverRegion.Length == 0 ? "Unknown Region" : serverRegion;
             lobbyButton.locked.color = lobby.MemberCount >= lobby.MaxMembers ? UnityEngine.Color.red : UnityEngine.Color.white;
+            lobbyButton.lobby = lobby;
         }
     }
 }
